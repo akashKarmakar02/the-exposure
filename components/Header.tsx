@@ -1,20 +1,55 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const path = usePathname();
+  console.log(path);
+
+  function homeIconColor() {
+    if (path == "/") {
+      return "text-red-600";
+    }
+    return "hover:text-red-600";
+  }
+
+  function galleryIconColor() {
+    if (path == "/gallery") {
+      return "text-red-600";
+    }
+    return "hover:text-red-600";
+  }
+
+  function aboutIconColor() {
+    if (path == "/about") {
+      return "text-red-600";
+    }
+    return "hover:text-red-600";
+  }
+
   return (
-    <header className="flex items-center justify-start space-x-2 font-bold px-10 py-5">
-      <div className="flex items-center space-x-2">
-        <Link href={"/"}>
-          <Image
-            className="rounded-full"
-            height={60}
-            width={60}
-            src="/logo.png"
-            alt="logo"
-          />
-        </Link>
+    <header className="flex items-center justify-between space-x-2 font-bold px-10 py-5">
+      <Link className="flex items-center space-x-2" href={"/"}>
+        <Image
+          className="rounded-full"
+          height={60}
+          width={60}
+          src="/logo.png"
+          alt="logo"
+        />
         <h1>The Exposure</h1>
+      </Link>
+      <div className="flex space-x-4 px-10">
+        <Link href={"/"} className={homeIconColor()}>
+          Home
+        </Link>
+        <Link href={"/gallery"} className={galleryIconColor()}>
+          Gallery
+        </Link>
+        <Link href={"/about"} className={aboutIconColor()}>
+          About
+        </Link>
       </div>
     </header>
   );
