@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 
 export default function Header() {
   const path = usePathname();
-  console.log(path);
 
   function homeIconColor() {
     if (path == "/") {
@@ -15,7 +14,7 @@ export default function Header() {
   }
 
   function galleryIconColor() {
-    if (path == "/gallery") {
+    if (path.slice(0,8) == "/gallery") {
       return "text-red-600";
     }
     return "hover:text-red-600";
