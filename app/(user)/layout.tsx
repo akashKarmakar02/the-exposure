@@ -1,10 +1,8 @@
 import Header from "@/components/Header";
 import "../globals.css";
-import { Inter } from "next/font/google";
 import Banner from "@/components/Banner";
 import React from "react";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
