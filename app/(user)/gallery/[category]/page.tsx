@@ -4,13 +4,6 @@ import { urlForImage } from "@/sanity/lib/image";
 import { groq } from "next-sanity";
 import Image from "next/image";
 
-const query = groq`
-  *[_type=="post"] {
-    ...,
-    author->,
-    categories[]->,
-  }
-`;
 
 const categoryQuery = groq`
   *[_type=="category"] {
@@ -18,22 +11,31 @@ const categoryQuery = groq`
   }
 `;
 
+const query = groq`
+  *[_type=="post"] {
+    ...,
+    author->,
+    category->{slug},
+  }
+`;
+
 type Props = {
   params: {
-    slug: string;
+    category: string;
   };
 };
 
-export default async function gallery({ params: { slug } }: Props) {
+export default async function gallery({ params: { category } }: Props) {
   const posts = await client.fetch(query);
   const categories = await client.fetch(categoryQuery);
-  console.log(posts);
+  // @ts-ignore
+    const categoryPosts = posts.filter(post => post.category.slug.current === category)
 
   return (
     <div>
       <Options categories={categories} />
       <div className="grid sm:grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pb-24">
-        {posts.map((post: any) => {
+        {categoryPosts.map((post: any) => {
           return (
             <div
               key={post._id}
