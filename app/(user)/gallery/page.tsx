@@ -19,28 +19,26 @@ const categoryQuery = groq`
 `;
 
 export default async function gallery() {
-  const posts = await client.fetch(query);
+  const posts: Post[] = await client.fetch(query);
   const categories = await client.fetch(categoryQuery);
+
 
   return (
     <div>
       <Options categories={categories} />
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pb-24">
-        {posts.map((post: any) => {
-          return (
-            <div
-              key={post._id}
-              className="flex justify-center w-fit h-fit drop-shadow-xl group-hover:scale-105 transition-transform duration-200 ease-out"
-            >
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-10 gap-10 gap-y-16 pb-24">
+        {posts.map((post) => {
+            return (
               <Image
                 alt="Next.js Conf photo"
+                key={post._id}
                 className="transform  sm:brightness-100 rounded-lg md:brightness-90 transition will-change-auto hover:brightness-100 hover:drop-shadow-lg cursor-zoom-in"
                 style={{ transform: "translate3d(0, 0, 0)" }}
+                // @ts-ignore
                 src={urlForImage(post.mainImage.asset).url()}
-                height={720}
-                width={1200}
+                height={1000}
+                width={650}
               />
-            </div>
           );
         })}
       </div>
