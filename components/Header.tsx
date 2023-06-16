@@ -46,9 +46,6 @@ export default function Header() {
         <Link href={"/gallery"} className={galleryIconColor()}>
           Gallery
         </Link>
-        <Link href={"/about"} className={aboutIconColor()}>
-          About
-        </Link>
       </div>
     </header>
   );
