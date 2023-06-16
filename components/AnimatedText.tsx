@@ -1,16 +1,24 @@
 "use client"
 
-import TypeIt from "typeit-react";
+import {Cursor, useTypewriter} from "react-simple-typewriter";
 
 export default function AnimatedText() {
+    const [text, count] = useTypewriter({
+        words: [
+            "Hey, The Name's Pritam Dey",
+            "The Guy Who Love Blender Render",
+            "The Guy Who Love DSLR Snap",
+        ],
+        loop: true,
+        delaySpeed: 2000,
+        typeSpeed: 40,
+    })
     return (
-        <TypeIt
-            options={{
-                strings: ["Hey, I'm Pritam", "A "],
-                speed: 10,
-                deleteSpeed: 3,
-
-            }}
-        />
+        <div>
+            <h1>
+                <span className={"text-4xl font-bold"}>{text}</span>
+                <Cursor cursorColor={"#f7550ae9"}/>
+            </h1>
+        </div>
     );
 }
