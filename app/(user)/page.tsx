@@ -14,8 +14,8 @@ export default function Home() {
                           fill
                       />
                   </div>
-                  <section className="p-5 bg-[#f7550ae9] w-full">
-                      <div className="flex flex-col md:flex-row justify-between gap-y-5">
+                  <section className="bg-[#f7550ae9] w-full">
+                      <div className="flex flex-col md:flex-row justify-start gap-y-5">
                           <div>
                               <Image
                                   src="/owner.jpg"
@@ -24,11 +24,12 @@ export default function Home() {
                                   width={480}
                               />
                           </div>
-                          <div className="flex items-center space-x-2">
+                          <div className="flex p-5 items-center space-x-2">
                               <AnimatedText />
                           </div>
                       </div>
                   </section>
+
               </div>
           </section>
       </article>
