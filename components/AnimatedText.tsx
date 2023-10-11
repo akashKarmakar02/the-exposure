@@ -5,7 +5,7 @@ import {Cursor, useTypewriter} from "react-simple-typewriter";
 export default function AnimatedText() {
     const [text, count] = useTypewriter({
         words: [
-            "Hey, The Name's Pritam Dey",
+            "Hey, The Name's Pretam Dey",
             "The Guy Who Love Blender Render",
             "The Guy Who Love DSLR Snap",
         ],

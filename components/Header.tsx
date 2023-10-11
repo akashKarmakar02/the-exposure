@@ -14,7 +14,7 @@ export default function Header() {
   }
 
   function galleryIconColor() {
-    if (path.slice(0,8) == "/gallery") {
+    if (path.slice(0, 8) == "/gallery") {
       return "text-red-600";
     }
     return "hover:text-red-600";
@@ -34,10 +34,10 @@ export default function Header() {
           className="rounded-full"
           height={60}
           width={60}
-          src="/logo.png"
+          src="/owner.jpg"
           alt="logo"
         />
-        <h1>The Exposure</h1>
+        <h1>Pretam Dey</h1>
       </Link>
       <div className="flex space-x-4 px-10">
         <Link href={"/"} className={homeIconColor()}>

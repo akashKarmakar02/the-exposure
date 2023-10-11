@@ -1,6 +1,7 @@
 import Image from "next/image";
 import AnimatedText from "@/components/AnimatedText";
 
+
 export default function Home() {
   return (
       <article className={"px-10 py-20"}>
@@ -18,7 +19,7 @@ export default function Home() {
                       <div className="flex flex-col md:flex-row justify-start gap-y-5">
                           <div>
                               <Image
-                                  src="/owner.jpg"
+                                  src="/owner.jpeg"
                                   alt="owner"
                                   height={240}
                                   width={480}

@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 
 
 export const metadata = {
-  title: "The Exposure",
-  description: "The Exposure by pretam dey\nPhotograph",
+  title: "Pretam Dey",
+  description: "Pretam Dey Photography",
 };
 
 export default function RootLayout({
